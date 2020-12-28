@@ -1,7 +1,7 @@
 class PrototypesController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :new, :destroy]
   before_action :move_to_index, only: [:edit]
-  before_action :set_tweet, only: [:edit, :show, :update, :destroy]
+  before_action :set_prototype, only: [:edit, :show, :update, :destroy]
   def index
     @prototypes = Prototype.includes(:user)
   end
@@ -52,7 +52,7 @@ class PrototypesController < ApplicationController
     end
   end
 
-  def set_tweet
+  def set_prototype
     @prototype = Prototype.find(params[:id])
   end
 end
